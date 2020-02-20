@@ -1,38 +1,100 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-cont {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: space-between;
+  height: 100vh;
+}
+.board {
+  height: 375px;
+  width: 440px;
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #ffc400;
+  align-content: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+.circles {
+  width: 50px;
+  height: 50px;
+  margin: 6px;
+  border-radius: 50%;
+  z-index: 0;
+  box-shadow:  10px 10px 15px #7d6000,
+  -10px -10px 15px #ffff00;
+  border: 2px solid #7d6000;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
+.innerCircles {
+  width: 48px;
+  height: 48px;
+  margin: -1px;
+  border-radius: 50%;
+  z-index: 2;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+}
+
+/* .innerCircles:active {
+  animation: 1s, ease-in;
+  animation-name: rotate;
+}
+
+@keyframes rotate {
   from {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(360deg);
   }
+} */
+
+.board-cont {
+  width: 500px;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc400;
+  border: 5px solid #ffc400;
+  border-radius: 15px;
+  box-shadow: 2px 3px 9px 5px rgba(0,0,0,0.44);
+  margin: auto;
+  line-height: 420px;
+}
+
+.header {
+  height: 75px;
+  background-color: #ff5733;
+  
+}
+
+.title {
+  color: #ff5733;
+  font-size: 42px;  
+}
+
+.result-portal {
+  height: 350px;
+  width: 250px;
+  background-color: #9d0c3f;
+  position: absolute;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  top: 100px;
+  left: calc(50% - 125px);
+}
+
+.title-portal {
+  font-size: 32px;
+  color: white;
+
 }
