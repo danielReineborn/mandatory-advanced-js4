@@ -1,24 +1,24 @@
 import { handleTurns, checkWins } from "../Functions";
+import { ROWS, COLUMNS } from "../Constants";
+
 export default function reducer(state, action) {
 
     switch (action.type) {
         case `play`:
             let newPlan = [...state.gamePlan];
             let newState = [...state.gameState];
-            let col = Math.floor(action.index / 6);
+            let col = Math.floor(action.index / ROWS); // rows = 6, columns = 7.
 
             let won = state.winState.won;
 
             let playerTurn = state.activePlayer;
             if (state.gameState[col].place >= 0 && won === false) {
                 let x = state.gameState[col];
-                let placement = x.row * 6 + x.place;
+                let placement = x.row * ROWS + x.place;
                 newPlan[placement] = playerTurn;
                 newState[col].place--;
-                console.log("playerTurn = ", playerTurn);
 
                 playerTurn = handleTurns(playerTurn, state);
-                console.log("playerTurn = ", playerTurn);
                 let winState = checkWins(newPlan);
 
                 return {
@@ -36,7 +36,7 @@ export default function reducer(state, action) {
         case `reset`:
             let reState = {
                 ...state,
-                gamePlan: new Array(7 * 6).fill("white"),
+                gamePlan: new Array(COLUMNS * ROWS).fill("white"),
                 gameState: [{ row: 0, place: 5 },
                 { row: 1, place: 5 },
                 { row: 2, place: 5 },

@@ -1,9 +1,9 @@
 import React, { useReducer } from 'react';
+import './App.css';
+
 import Result from "./Component/Result";
 import GameBoard from "./Component/GameBoard";
-import './App.css';
 import reducer from "./Reducers";
-import { winnerDisplay } from "./Functions";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, {
