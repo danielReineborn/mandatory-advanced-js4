@@ -13,12 +13,9 @@ const Result = ({ result, reset, state }) => {
     return (
         result.won === true
             ? ReactDOM.createPortal(
-                <div>
-                    <div className="result-portal">
-                        <h1 className="title-portal">
-                            {winnerDisplay(result.winner, state)} has won!
-                    </h1>
-
+                <div className="result-portal">
+                    <div>
+                        <h1 className="title-portal">{winnerDisplay(result.winner, state)} has won!</h1>
                         <button onClick={onClick}>Reset</button>
                     </div>
                 </div>, document.body
